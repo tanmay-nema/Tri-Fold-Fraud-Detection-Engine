@@ -1,0 +1,11 @@
+claim_id,patient_id,sex,age,billing_code,admit_date,discharge_date,bill_amount,doctor_reg_no,hospital_id,procedure_start,procedure_end,l1_flag,l1_reason,bill_ratio,stay_ratio,l2_zmax,l2_score,l2_flag,l2_reason,l3_flag,l3_reason,any_flag,detected_layers,expected_layers,match
+C001,P001,M,34,PKG_APPY,2026-02-10,2026-02-13,44500,DR101,H01,2026-02-10 09:00,2026-02-10 11:00,0,,0.99,1.0,0.2,0.192,0,,0,,0,none,none,OK
+C002,P002,F,62,PKG_CAT,2026-02-12,2026-02-14,27500,DR202,H02,2026-02-12 09:00,2026-02-12 10:00,0,,0.95,1.0,0.9,0.216,0,,0,,0,none,none,OK
+C003,P003,M,45,PKG_HYST,2026-02-14,2026-02-18,350000,DR102,H01,2026-02-14 09:00,2026-02-14 12:00,1,R1 impossible procedure: PKG_HYST billed for sex=M,4.88,1.0,69.3,0.03,1,L2 outlier (69.3 SD): bill is 4.88x package median,0,,1,L1+L2,L1+L2,OK
+C004,P004,F,29,PKG_APPY,2026-02-16,2026-02-19,46000,DR303,H03,2026-02-16 09:00,2026-02-16 11:00,0,,1.02,1.0,0.4,0.231,0,,0,,0,none,none,OK
+C005,P004,F,29,CMP_ANAES,2026-02-16,2026-02-19,4500,DR303,H03,2026-02-16 09:00,2026-02-16 11:00,1,R2 unbundled: CMP_ANAES is already inside PKG_APPY (C004),,,,,0,,0,,1,L1,L1,OK
+C006,P006,M,58,PKG_KNEE,2026-03-01,2026-03-06,181000,DR201,H02,2026-03-01 09:00,2026-03-01 12:00,1,R3 overlapping admission with C007 (H03),1.01,1.0,0.1,0.207,0,,0,,1,L1,L1,OK
+C007,P006,M,58,PKG_APPY,2026-03-05,2026-03-08,45500,DR301,H03,2026-03-05 09:00,2026-03-05 11:00,1,R3 overlapping admission with C006 (H02),1.01,1.0,0.2,0.209,0,,0,,1,L1,L1,OK
+C008,P008,F,66,PKG_CAT,2026-04-02,2026-04-09,150000,DR501,H05,2026-04-02 09:00,2026-04-02 10:00,0,,5.17,3.5,74.4,-0.079,1,L2 outlier (74.4 SD): bill is 5.17x package median; stay is 3.5x package median,0,,1,L2,L2,OK
+C009,P009,M,51,PKG_APPY,2026-04-10,2026-04-13,45200,DR999,H01,2026-04-10 09:00,2026-04-10 11:00,0,,1.01,1.0,0.1,0.208,0,,1,L3 collision: DR999 billed at H01 (09:00-11:00) and at H04 (10:00-12:00) on the same day (C010),1,L3,L3,OK
+C010,P010,F,47,PKG_APPY,2026-04-10,2026-04-13,44800,DR999,H04,2026-04-10 10:00,2026-04-10 12:00,0,,1.0,1.0,0.1,0.21,0,,1,L3 collision: DR999 billed at H04 (10:00-12:00) and at H01 (09:00-11:00) on the same day (C009),1,L3,L3,OK

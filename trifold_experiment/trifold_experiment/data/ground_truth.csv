@@ -1,0 +1,11 @@
+claim_id,expected_layers
+C001,none
+C002,none
+C003,L1+L2
+C004,none
+C005,L1
+C006,L1
+C007,L1
+C008,L2
+C009,L3
+C010,L3
